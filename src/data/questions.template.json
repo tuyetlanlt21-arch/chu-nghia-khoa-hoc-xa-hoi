@@ -1,0 +1,4 @@
+{
+  "chapters": [{ "id": "chapter-id", "number": 1, "title": "Chapter title", "description": "Short description", "questionIds": ["chapter-id-q1"] }],
+  "questions": [{ "id": "chapter-id-q1", "chapterId": "chapter-id", "question": "Câu hỏi chính thức", "options": ["A", "B", "C", "D"], "correctAnswer": 0, "explanation": "Giải thích chính thức" }]
+}
