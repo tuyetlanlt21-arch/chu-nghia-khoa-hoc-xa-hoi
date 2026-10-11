@@ -168,17 +168,19 @@ a { color: inherit; text-decoration: none; }
 .progress-track span { display: block; height: 100%; border-radius: inherit; background: var(--primary); transition: width .25s; }
 .quiz-layout { display: grid; grid-template-columns: minmax(220px, 260px) minmax(0, 1fr); gap: 40px; margin-top: 46px; }
 .nav-label, .question-kicker { margin: 0 0 14px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
-.question-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); width: 100%; gap: 12px; }
-.question-grid button { position: relative; width: 100%; min-width: 0; min-height: 0; aspect-ratio: 1; align-self: start; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); color: var(--muted); font-size: 12px; }
+.question-grid { display: grid; grid-template-columns: repeat(auto-fill, 44px); grid-auto-rows: 44px; width: fit-content; max-width: 100%; gap: 8px; justify-content: start; align-content: start; }
+.question-grid button { position: relative; box-sizing: border-box; width: 44px; height: 44px; min-width: 44px; min-height: 44px; max-width: 44px; max-height: 44px; aspect-ratio: auto; flex: none; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 700; transition: border-color .18s, background-color .18s, color .18s, box-shadow .18s, transform .18s; }
+.question-grid button:hover:not(:disabled) { border-color: var(--primary); background: var(--selected); color: var(--primary); transform: translateY(-1px); }
+.question-grid button:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(182, 79, 121, .18); }
 .question-grid button.current { border-color: var(--primary); background: var(--selected); color: var(--primary); font-weight: 700; }
 .question-grid button.answered:not(.current) { background: var(--primary); border-color: var(--primary); color: var(--primary-text); }
 .question-grid button.marked::after { content: ''; position: absolute; top: 4px; right: 4px; width: 5px; height: 5px; border-radius: 50%; background: var(--primary); }
-.legend { display: grid; gap: 9px; margin-top: 30px; color: var(--muted); font-size: 10px; }
-.legend span { display: flex; align-items: center; gap: 8px; }
-.legend i { width: 9px; height: 9px; border: 1px solid var(--border); border-radius: 3px; }
-.legend-current { background: var(--selected); border-color: var(--primary) !important; }
-.legend-answer { background: var(--primary); border-color: var(--primary) !important; }
-.legend-marked { background: var(--primary); }
+.legend { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 18px; margin-top: 20px; color: var(--muted); font-size: 13px; line-height: 1.3; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend-icon { display: block; flex: 0 0 auto; width: 15px; height: 15px; stroke-width: 2.25; }
+.legend-icon-correct { color: var(--success); }
+.legend-icon-incorrect { color: var(--danger); }
+.legend-icon-unanswered { color: var(--muted); }
 .question-card { max-width: 100%; min-width: 0; padding: 34px 38px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; }
 .question-card h2 { max-width: 760px; margin: 0 0 27px; color: var(--text-primary); font: 700 clamp(21px, 2.3vw, 28px)/1.3 'Plus Jakarta Sans'; letter-spacing: -.04em; overflow-wrap: anywhere; }
 .answers { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; }
@@ -229,8 +231,7 @@ a { color: inherit; text-decoration: none; }
   .quiz-layout { grid-template-columns: minmax(0, 1fr); gap: 25px; margin-top: 30px; }
   .question-nav { order: 2; }
   .question-panel { order: 1; }
-  .question-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .question-grid button { width: 100%; }
+  .question-grid { grid-template-columns: repeat(auto-fill, 44px); }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .demo-note { text-align: left; }
 }
@@ -238,7 +239,7 @@ a { color: inherit; text-decoration: none; }
   .topbar { height: 68px; gap: 18px; }
   .header-tool span, .header-link span { display: none; }
   .hero { grid-template-columns: 1fr; min-height: 0; padding: 42px 25px 35px; }
-  .question-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .question-grid { grid-template-columns: repeat(auto-fill, 44px); gap: 8px; }
   .hero-preview { justify-self: center; transform: none; margin-top: 20px; }
   .stats-grid { gap: 10px; }
   .question-card { padding: 25px 18px; }
@@ -375,23 +376,32 @@ a { color: inherit; text-decoration: none; }
 
 .review-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  width: 100%;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, 44px);
+  grid-auto-rows: 44px;
+  width: fit-content;
+  max-width: 100%;
+  gap: 8px;
+  justify-content: start;
+  align-content: start;
 }
 
 .review-tile {
-  width: 100%;
-  min-width: 0;
-  min-height: 0;
-  aspect-ratio: 1;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  aspect-ratio: auto;
+  flex: none;
   align-self: start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   position: relative;
-  padding: 0 5px;
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: 11px;
   background: var(--surface);
@@ -574,12 +584,13 @@ a { color: inherit; text-decoration: none; }
   }
 
   .review-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
+    grid-template-columns: repeat(auto-fill, 44px);
+    gap: 8px;
   }
 
   .review-tile {
-    width: 100%;
+    width: 44px;
+    height: 44px;
   }
 
   .detail-header {
@@ -603,11 +614,6 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-@media (min-width: 701px) and (max-width: 900px) {
-  .review-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
