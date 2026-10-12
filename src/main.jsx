@@ -6,6 +6,7 @@ import { chapters, questions } from './data/questions'
 import { calculateAccuracy, calculateScore, confirmPracticeAnswer, createAttempt, getChapterProgress, getQuestionStatus, getQuestionsByChapter, getReviewStats, submitAttempt, updateAnswer } from './lib/quizEngine'
 import { getAttempt, getInProgress, loadState, upsertAttempt } from './services/storage'
 import { TimedQuizPage } from './components/TimedQuizPage'
+import { FormattedQuestion } from './components/FormattedQuestion'
 import { getPrimaryAction } from './lib/quizActions'
 import './styles.css'
 
@@ -69,7 +70,7 @@ function ReviewDetail({ question, attempt, allQuestions }) {
   const answer = attempt.answers?.[question.id]
   const status = getQuestionStatus(question, attempt)
    const statusLabel = { correct: 'Đúng', incorrect: 'Sai', unanswered: 'Chưa trả lời' }[status]
-  return <article className="review-detail"><div className="detail-header"><div><p className="question-kicker">CÂU HỎI {getQuestionNumber(question, allQuestions)}</p><h3>{question.question}</h3></div><span className={'detail-status status-' + status}>{statusLabel}</span></div><div className="review-options">{question.options.map((option, index) => { const correct = index === question.correctAnswer; const user = status !== 'unanswered' && index === answer; return <div className={['review-option', correct ? 'is-correct' : '', user && !correct ? 'is-user-wrong' : ''].filter(Boolean).join(' ')} key={option}><span className="review-option-letter">{String.fromCharCode(65 + index)}</span><span className="review-option-text">{option}</span><span className="review-option-label">{user && correct ? 'Đáp án của bạn · Đúng' : user ? 'Đáp án của bạn' : correct ? 'Đáp án đúng' : ''}</span>{correct && <Check size={17} />}</div> })}</div><div className="explanation"><strong>Giải thích</strong><p>{question.explanation}</p></div></article>
+  return <article className="review-detail"><div className="detail-header"><div><p className="question-kicker">CÂU HỎI {getQuestionNumber(question, allQuestions)}</p><FormattedQuestion question={question} as="h3" /></div><span className={'detail-status status-' + status}>{statusLabel}</span></div><div className="review-options">{question.options.map((option, index) => { const correct = index === question.correctAnswer; const user = status !== 'unanswered' && index === answer; return <div className={['review-option', correct ? 'is-correct' : '', user && !correct ? 'is-user-wrong' : ''].filter(Boolean).join(' ')} key={option}><span className="review-option-letter">{String.fromCharCode(65 + index)}</span><span className="review-option-text">{option}</span><span className="review-option-label">{user && correct ? 'Đáp án của bạn · Đúng' : user ? 'Đáp án của bạn' : correct ? 'Đáp án đúng' : ''}</span>{correct && <Check size={17} />}</div> })}</div><div className="explanation"><strong>Giải thích</strong><p>{question.explanation}</p></div></article>
 }
 function ResultsPage() {
   const { attemptId } = useParams()
