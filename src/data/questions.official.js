@@ -434,6 +434,12 @@ const officialData = {
       "id": "chapter-3-q8",
       "chapterId": "chapter-3",
       "question": "Theo lý thuyết, Việt Nam tiến lên con đường chủ nghĩa xã hội mà bỏ qua chế độ tư bản chủ nghĩa. Nội dung này được xác định đồng thời với việc tiếp thu, kế thừa những thành tựu mà nhân loại đạt được dưới chế độ tư bản chủ nghĩa. Một cách diễn giải mối quan hệ giữa hai nội dung trên được đưa ra như sau:\nViệc tiếp thu những thành tựu của chủ nghĩa tư bản trong quá trình phát triển lực lượng sản xuất làm cho Việt Nam từng bước hình thành những tiền đề kinh tế của chủ nghĩa xã hội; do đó, quá trình này thể hiện sự kế thừa những yếu tố cần thiết của chủ nghĩa tư bản trong khi thực hiện con đường quá độ bỏ qua chế độ tư bản chủ nghĩa.\nĐánh giá nào phù hợp nhất với lập luận trên?",
+      "questionFormatting": {
+        "italic": {
+          "paragraph": 1,
+          "from": "Việc tiếp thu những thành tựu của"
+        }
+      },
       "options": [
         "Lập luận phù hợp, vì bỏ qua chế độ tư bản chủ nghĩa không gắn với việc phủ nhận những thành tựu mà nhân loại đạt được dưới chế độ tư bản chủ nghĩa.",
         "Lập luận phù hợp, vì sự kế thừa thành tựu của chủ nghĩa tư bản tạo thành một bộ phận của quá trình xác lập chế độ tư bản chủ nghĩa trong thời kỳ quá độ.",
@@ -485,7 +491,7 @@ const officialData = {
     {
       "id": "chapter-4-q2",
       "chapterId": "chapter-4",
-      "question": "So với các nền dân chủ tư sản trước đây, nền dân chủ xã hội chủ nghĩa có điểm khác biệt nào? (phần kết luận)",
+      "question": "So với các nền dân chủ tư sản trước đây, nền dân chủ xã hội chủ nghĩa có điểm khác biệt nào?",
       "options": [
         "Không còn mang tính giai cấp",
         "Là nền dân chủ cho mọi giai cấp",
