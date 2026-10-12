@@ -550,8 +550,8 @@ const officialData = {
         "Chế độ sở hữu xã hội về tư liệu sản xuất chủ yếu",
         "Chế độ phân phối theo lao động"
       ],
-      "correctAnswer": 0,
-      "explanation": "Vì về phương diện kinh tế, bản chất của Nhà nước xã hội chủ nghĩa được quyết định bởi quan hệ sở hữu đối với tư liệu sản xuất, trong đó các tư liệu sản xuất chủ yếu thuộc sở hữu xã hội, nhằm phục vụ lợi ích chung của xã hội."
+      "correctAnswer": 2,
+      "explanation": "Bản chất kinh tế của Nhà nước xã hội chủ nghĩa được quyết định bởi chế độ sở hữu xã hội về tư liệu sản xuất chủ yếu."
     },
     {
       "id": "chapter-4-q7",
